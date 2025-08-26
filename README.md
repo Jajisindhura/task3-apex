@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All-in-One Web Project</title>
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+    body {background:#f4f4f9;color:#333;line-height:1.6;}
+    header {background:#222;color:#fff;padding:1rem;text-align:center;}
+    nav ul {list-style:none;display:flex;justify-content:center;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;}
+    nav a {color:#fff;text-decoration:none;}
+    nav a:hover {color:#00bcd4;}
+    section {padding:2rem;text-align:center;}
+    h2 {margin-bottom:1rem;color:#222;}
+
+    /* Portfolio */
+    .portfolio {background:#fff;padding:2rem;}
+    .portfolio img {width:150px;border-radius:50%;margin:1rem 0;}
+
+    /* Contact Form */
+    form {max-width:500px;margin:auto;background:#fff;padding:1rem;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    form input, form textarea {width:100%;padding:0.7rem;margin:0.5rem 0;border:1px solid #ccc;border-radius:5px;}
+    form button {background:#2196f3;color:#fff;border:none;padding:0.7rem 1.5rem;border-radius:5px;cursor:pointer;}
+    form button:hover {background:#00bcd4;}
+
+    /* To-Do List */
+    #todo-container {max-width:400px;margin:auto;text-align:left;}
+    #todo-container input {width:70%;padding:0.5rem;}
+    #todo-container button {padding:0.5rem;}
+    .task {background:#e3e3e3;padding:0.5rem;margin:0.5rem 0;border-radius:5px;display:flex;justify-content:space-between;}
+
+    /* Product List */
+    .products {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+    .product {background:#fff;padding:1rem;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .product img {width:100%;border-radius:10px;}
+
+    /* Carousel */
+    .carousel {display:flex;align-items:center;justify-content:center;gap:1rem;}
+    .carousel img {width:600px;max-width:90%;height:300px;border-radius:10px;object-fit:cover;}
+    .carousel button {background:#00bcd4;border:none;color:white;font-size:1.5rem;padding:0.5rem 1rem;border-radius:50%;cursor:pointer;}
+    .carousel button:hover {background:#2196f3;}
+
+    /* Quiz */
+    #quiz-container {max-width:500px;margin:auto;background:#f9f9f9;padding:1rem;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .option {display:block;background:#e3e3e3;padding:0.5rem;margin:0.5rem 0;border-radius:5px;cursor:pointer;}
+    .option:hover {background:#00bcd4;color:white;}
+    #next-btn {background:#2196f3;color:#fff;border:none;padding:0.7rem 1.5rem;border-radius:5px;cursor:pointer;}
+    #next-btn:hover {background:#00bcd4;}
+
+    /* API */
+    #get-joke {background:#ff9800;color:white;border:none;padding:0.7rem 1.5rem;border-radius:5px;cursor:pointer;}
+    #get-joke:hover {background:#f57c00;}
+
+    /* Footer */
+    footer {background:#222;color:#fff;text-align:center;padding:1rem;margin-top:2rem;}
+
+    /* Responsive */
+    @media (max-width:768px){
+      nav ul{flex-direction:column;gap:0.5rem;}
+      .carousel img{height:auto;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>All-in-One Web Project</h1>
+    <nav>
+      <ul>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#todo">To-Do</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#carousel">Carousel</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#api">API</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="portfolio">
+    <h2>Personal Portfolio</h2>
+    <img src="https://via.placeholder.com/150" alt="Profile">
+    <p>Hello! I'm a web developer building interactive, responsive websites with HTML, CSS, and JavaScript.</p>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="form-msg"></p>
+  </section>
+
+  <!-- To-Do List -->
+  <section id="todo">
+    <h2>To-Do List</h2>
+    <div id="todo-container">
+      <input type="text" id="task-input" placeholder="Add a new task">
+      <button id="add-task">Add</button>
+      <div id="task-list"></div>
+    </div>
+  </section>
+
+  <!-- Product Listing -->
+  <section id="products">
+    <h2>Product Listing</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://picsum.photos/200/150?random=1" alt="Product">
+        <h3>Product 1</h3>
+        <p>$20.00</p>
+      </div>
+      <div class="product">
+        <img src="https://picsum.photos/200/150?random=2" alt="Product">
+        <h3>Product 2</h3>
+        <p>$35.00</p>
+      </div>
+      <div class="product">
+        <img src="https://picsum.photos/200/150?random=3" alt="Product">
+        <h3>Product 3</h3>
+        <p>$50.00</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Carousel -->
+  <section id="carousel">
+    <h2>Image Carousel</h2>
+    <div class="carousel">
+      <button id="prev">❮</button>
+      <img id="carousel-image" src="https://picsum.photos/600/300?random=1" alt="Carousel">
+      <button id="next">❯</button>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz">
+    <h2>Quick Quiz</h2>
+    <div id="quiz-container">
+      <p id="question">Loading question...</p>
+      <div id="options"></div>
+      <button id="next-btn">Next</button>
+    </div>
+    <p id="score"></p>
+  </section>
+
+  <!-- API Data -->
+  <section id="api">
+    <h2>Random Joke API</h2>
+    <button id="get-joke">Get a Joke</button>
+    <p id="joke"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 All-in-One Web Project | Built with ❤️</p>
+  </footer>
+
+  <script>
+    // Contact Form Validation
+    document.getElementById("contact-form").addEventListener("submit", e=>{
+      e.preventDefault();
+      const name=document.getElementById("name").value.trim();
+      const email=document.getElementById("email").value.trim();
+      const msg=document.getElementById("message").value.trim();
+      if(name && email.includes("@") && msg){
+        document.getElementById("form-msg").textContent="Message Sent Successfully!";
+        document.getElementById("form-msg").style.color="green";
+      } else {
+        document.getElementById("form-msg").textContent="Please fill all fields correctly.";
+        document.getElementById("form-msg").style.color="red";
+      }
+    });
+
+    // To-Do List
+    const taskInput=document.getElementById("task-input");
+    const addTaskBtn=document.getElementById("add-task");
+    const taskList=document.getElementById("task-list");
+    addTaskBtn.addEventListener("click",()=>{
+      if(taskInput.value.trim()!==""){
+        const div=document.createElement("div");
+        div.className="task";
+        div.innerHTML=`<span>${taskInput.value}</span><button onclick="this.parentElement.remove()">❌</button>`;
+        taskList.appendChild(div);
+        taskInput.value="";
+      }
+    });
+
+    // Carousel
+    const images=["https://picsum.photos/600/300?random=1","https://picsum.photos/600/300?random=2","https://picsum.photos/600/300?random=3"];
+    let currentIndex=0;
+    const carouselImg=document.getElementById("carousel-image");
+    document.getElementById("next").addEventListener("click",()=>{
+      currentIndex=(currentIndex+1)%images.length;
+      carouselImg.src=images[currentIndex];
+    });
+    document.getElementById("prev").addEventListener("click",()=>{
+      currentIndex=(currentIndex-1+images.length)%images.length;
+      carouselImg.src=images[currentIndex];
+    });
+
+    // Quiz
+    const quizData=[
+      {question:"Which language is used for styling web pages?",options:["HTML","CSS","JavaScript","Python"],answer:"CSS"},
+      {question:"Which is not a JavaScript Framework?",options:["React","Angular","Vue","Django"],answer:"Django"},
+      {question:"What does HTML stand for?",options:["Hyper Trainer Markup Language","Hyper Text Markup Language","High Text Machine Language","None of these"],answer:"Hyper Text Markup Language"}
+    ];
+    let quizIndex=0,score=0;
+    const qEl=document.getElementById("question");
+    const optEl=document.getElementById("options");
+    const nextBtn=document.getElementById("next-btn");
+    const scoreEl=document.getElementById("score");
+    function loadQuiz(){
+      if(quizIndex<quizData.length){
+        const q=quizData[quizIndex];
+        qEl.textContent=q.question;
+        optEl.innerHTML="";
+        q.options.forEach(opt=>{
+          const btn=document.createElement("button");
+          btn.textContent=opt;
+          btn.classList.add("option");
+          btn.onclick=()=>{if(opt===q.answer)score++;quizIndex++;loadQuiz();};
+          optEl.appendChild(btn);
+        });
+      } else {
+        qEl.textContent="Quiz Completed!";
+        optEl.innerHTML="";
+        nextBtn.style.display="none";
+        scoreEl.textContent=`Your Score: ${score}/${quizData.length}`;
+      }
+    }
+    nextBtn.addEventListener("click",loadQuiz);
+    loadQuiz();
+
+    // API Fetch
+    document.getElementById("get-joke").addEventListener("click",async()=>{
+      const res=await fetch("https://official-joke-api.appspot.com/random_joke");
+      const data=await res.json();
+      document.getElementById("joke").textContent=`${data.setup} - ${data.punchline}`;
+    });
+  </script>
+</body>
+</html>
